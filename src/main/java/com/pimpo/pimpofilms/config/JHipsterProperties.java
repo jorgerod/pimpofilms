@@ -123,6 +123,24 @@ public class JHipsterProperties {
     }
 
     public static class Cache {
+        private final Ehcache ehcache = new Ehcache();
+
+        public Ehcache getEhcache() {
+            return ehcache;
+        }
+
+        public static class Ehcache {
+
+            private String maxBytesLocalHeap = "16M";
+
+            public String getMaxBytesLocalHeap() {
+                return maxBytesLocalHeap;
+            }
+
+            public void setMaxBytesLocalHeap(String maxBytesLocalHeap) {
+                this.maxBytesLocalHeap = maxBytesLocalHeap;
+            }
+        }
     }
 
     public static class Mail {

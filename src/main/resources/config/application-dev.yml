@@ -33,19 +33,21 @@ spring:
             enabled: false # we use gulp + BrowserSync for livereload
     jackson:
         serialization.indent_output: true
-    cloud:
-        stream:
-            kafka:
-                binder:
-                    brokers: localhost
-                    zk-nodes: localhost
-            bindings:
-                output:
-                    destination: topic-jhipster
-    data:
-        mongodb:
-            uri: mongodb://localhost:27017
-            database: pimpofilms
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:5432/pimpofilms
+        name:
+        username: pimpofilms
+        password:
+    jpa:
+        database-platform: com.pimpo.pimpofilms.domain.util.FixedPostgreSQL82Dialect
+        database: POSTGRESQL
+        show-sql: true
+        properties:
+            hibernate.cache.use_second_level_cache: true
+            hibernate.cache.use_query_cache: false
+            hibernate.generate_statistics: true
+            hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
     mail:
         host: localhost
         port: 25
@@ -56,6 +58,9 @@ spring:
     thymeleaf:
         cache: false
 
+liquibase:
+    contexts: dev
+
 server:
     port: 8081
 
@@ -64,6 +69,9 @@ server:
 # ===================================================================
 
 jhipster:
+    cache: # Hibernate 2nd level cache, used by CacheConfiguration
+        ehcache:
+            maxBytesLocalHeap: 16M
     security:
         authentication:
             jwt:

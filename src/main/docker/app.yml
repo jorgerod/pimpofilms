@@ -3,32 +3,17 @@ services:
     pimpofilms-app:
         image: pimpofilms
         external_links:
-            - pimpofilms-mongodb:mongodb
-            - kafka:kafka
-            - zookeeper:zookeeper
+            - pimpofilms-postgresql:postgresql
             - jhipster-registry:registry
         environment:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - SPRING_CLOUD_CONFIG_URI=http://admin:admin@registry:8761/config
-            - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017
-            - SPRING_DATA_MONGODB_DATABASE=pimpofilms
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/pimpofilms
             - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
-            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
-            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
-    pimpofilms-mongodb:
+    pimpofilms-postgresql:
         extends:
-            file: mongodb.yml
-            service: pimpofilms-mongodb
-    kafka:
-        extends:
-            file: kafka.yml
-            service: kafka
-        environment:
-            - KAFKA_ADVERTISED_HOST_NAME=kafka
-    zookeeper:
-        extends:
-            file: kafka.yml
-            service: zookeeper
+            file: postgresql.yml
+            service: pimpofilms-postgresql
     jhipster-registry:
         extends:
             file: jhipster-registry.yml

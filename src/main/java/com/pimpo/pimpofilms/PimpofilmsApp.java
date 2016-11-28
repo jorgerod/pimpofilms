@@ -24,7 +24,7 @@ import java.util.Collection;
 
 @ComponentScan
 @EnableAutoConfiguration(exclude = { MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class })
-@EnableConfigurationProperties({ JHipsterProperties.class })
+@EnableConfigurationProperties({ JHipsterProperties.class, LiquibaseProperties.class })
 @EnableDiscoveryClient
 public class PimpofilmsApp {
 
