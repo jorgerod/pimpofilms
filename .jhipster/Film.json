@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "actor",
+            "otherEntityName": "actor",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "film"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "1900",
+            "fieldValidateRulesMax": "2100"
+        }
+    ],
+    "changelogDate": "20161128223445",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "film",
+    "pagination": "pager",
+    "microserviceName": "pimpofilms",
+    "searchEngine": false
+}

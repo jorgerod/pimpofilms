@@ -1,0 +1,20 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "film",
+            "otherEntityName": "film",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "actor"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161128223631",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "actor",
+    "pagination": "pager",
+    "microserviceName": "pimpofilms",
+    "searchEngine": false
+}

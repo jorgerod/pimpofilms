@@ -37,5 +37,25 @@
            timeToLiveSeconds="3600">
     </cache>
 
+    <cache name="com.pimpo.pimpofilms.domain.Film"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.pimpo.pimpofilms.domain.Film.actors"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.pimpo.pimpofilms.domain.Film.directors"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.pimpo.pimpofilms.domain.Actor"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="com.pimpo.pimpofilms.domain.Actor.films"
+        timeToLiveSeconds="3600">
+    </cache>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </ehcache>

@@ -35,10 +35,10 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://localhost:5432/pimpofilms
+        url: jdbc:postgresql://localhost:5433/pimpofilms
         name:
-        username: pimpofilms
-        password:
+        username: postgres
+        password: root
     jpa:
         database-platform: com.pimpo.pimpofilms.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
@@ -63,6 +63,7 @@ liquibase:
 
 server:
     port: 8081
+
 
 # ===================================================================
 # JHipster specific properties
